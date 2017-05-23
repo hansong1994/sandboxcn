@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/multiteam_top_scoreboard.css" />
+	</styles>
+	<scripts>
+    <include src="file://{resources}/scripts/custom_game/multiteam_top_scoreboard_player.js" />
+	</scripts>
+    <Panel hittest="false" class="ScoreboardPlayer">
+        <Button class="PlayerPortraitWrapper" onmouseactivate="PortraitClicked();" ondblclick="PortraitDoubleClicked();">
+            <Panel id="PlayerColor"></Panel>
+            <Panel id="DisconnectIcon" hittest="false"></Panel>
+            <Image hittest="false" id="HeroIcon" />
+            <Panel id="PlayerColorShadow" hittest="false"></Panel>
+        </Button>
+    </Panel>
+</root>

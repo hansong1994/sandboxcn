@@ -1,0 +1,590 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/dotastyles.css" />
+        <include src="file://{resources}/styles/custom_game/hud_hero_demo.css" />
+        <include src="file://{resources}/styles/custom_game/custom_dropdown.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/vector.js" />
+        <include src="file://{resources}/scripts/custom_game/hud_hero_demo.js" />
+    </scripts>
+    <Panel class="ControlPanel" hittest="false">
+        <Panel class="TabContainer">
+            <Button id="TabButton1" class="TabButton" onactivate="ToggleTab(1);">
+                <Label class="TabButtonLabel" text="#Tab1" />
+            </Button>
+            <Button id="TabButton2" class="TabButton" onactivate="ToggleTab(2);">
+                <Label class="TabButtonLabel" text="#Tab2" />
+            </Button>
+            <Button id="TabButton3" class="TabButton" onactivate="ToggleTab(3);">
+                <Label class="TabButtonLabel" text="#Tab3" />
+            </Button>
+            <Button id="TabButton4" class="TabButton" onactivate="ToggleTab(4);">
+                <Label class="TabButtonLabel" text="#Tab4" />
+            </Button>
+            <Button id="TabButton5" class="TabButton" onactivate="ToggleTab(5);">
+                <Label class="TabButtonLabel" text="#Tab5" />
+            </Button>
+            <Button id="TabButton6" class="TabButton" onactivate="ToggleTab(6);">
+                <Label class="TabButtonLabel" text="#Tab6" />
+            </Button>
+            <Button id="TabButton7" class="TabButton" onactivate="ToggleTab(7);">
+                <Label class="TabButtonLabel" text="#Tab7" />
+            </Button>
+        </Panel>
+        <Panel class="ControlPanelOuterContainer">
+            <Panel class="ControlPanelContainer">
+                <Panel id="Maximized">
+                    <Panel class="TabContentContainer">
+                        <Panel id="TabContent1" class="TabContent">
+                            <Panel class="Category">
+                                <Label class="Header" text="#Hero_ButtonCategory" />
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'RefreshButtonPressed' )">
+                                        <Label text="#Refresh_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="FreeSpells_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( FreeSpellsButtonPressed )">
+                                        <Label text="#FreeSpells_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="Invulnerability_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( InvulnerabilityButtonPressed )">
+                                        <Label text="#Invulnerability_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'LevelUpButtonPressed' )">
+                                        <Label text="#LevelUp_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'MaxLevelButtonPressed' )">
+                                        <Label text="#MaxLevel_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'ResetHeroButtonPressed' )">
+                                        <Label text="#ResetHero_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'ClearInventoryButtonPressed' )">
+                                        <Label text="#ClearInventory_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'RespawnHeroButtonPressed' )">
+                                        <Label text="#RespawnHero_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'TeleportButtonPressed' )">
+                                        <Label text="#Teleport_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Label id="ShowDamageDealtLabel" class="SectionLabel" text="#ShowDamageDealtLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton class="DemoButton" onactivate="FireCustomGameEvent_Str( ShowDamageDealtButtonPressed )">
+                                        <Label text="#ShowDamageDealt_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="ShowTargetHealthLabel" class="SectionLabel"  text="#ShowTargetHealthLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton class="DemoButton" onactivate="FireCustomGameEvent_Str( ShowTargetHealthPreAttackButtonPressed )">
+                                        <Label text="#ShowTargetHealthPreAttack_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton class="DemoButton" onactivate="FireCustomGameEvent_Str( ShowTargetHealthPostAttackButtonPressed )">
+                                        <Label text="#ShowTargetHealthPostAttack_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                            </Panel>
+                        </Panel>
+                        <Panel id="TabContent2" class="TabContent">
+                            <Panel class="Category">
+                                <Label class="Header" text="#Spawn_ButtonCategory" />
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( StartGameButtonPressed )">
+                                        <Label text="#StartGame_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( SwitchTeamButtonPressed )">
+                                        <Label text="#SwitchTeam_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'RefreshAllButtonPressed' )">
+                                        <Label text="#RefreshAll_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Label id="SpawnHeroButtonLabel" class="SectionLabel" text="#SpawnHeroButtonLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button id="HeroCustomDropDown" class="CustomDropDownButton" onactivate="OpenCustomDropDown()">
+                                        <Label id="HeroCustomDropDownLabel" class="CustomDropDownLabel" text="Abaddon" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'SpawnAllyButtonPressed' )">
+                                        <Label text="#Ally_Button" />
+                                    </Button>
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'SpawnEnemyButtonPressed' )">
+                                        <Label text="#Enemy_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Label id="SpawnInvulnerabilityButtonLabel" class="SectionLabel" text="#SpawnInvulnerabilityButtonLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="AllyInvulnerability_Button" class="DemoButton HalfButton" onactivate="FireCustomGameEvent_Str( AllyInvulnerabilityButtonPressed )">
+                                        <Label text="#AllyInvulnerability_Button" />
+                                    </ToggleButton>
+                                    <ToggleButton id="EnemyInvulnerability_Button" class="DemoButton HalfButton" onactivate="FireCustomGameEvent_Str( EnemyInvulnerabilityButtonPressed )">
+                                        <Label text="#EnemyInvulnerability_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Label id="LevelUpHeroButtonLabel" class="SectionLabel" text="#LevelUpHeroButtonLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent_Str( LevelUpAllyButtonPressed )">
+                                        <Label text="#Ally_Button" />
+                                    </Button>
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent_Str( LevelUpEnemyButtonPressed )">
+                                        <Label text="#Enemy_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">    
+                                  <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( DummyTargetButtonPressed )">
+                                    <Label text="#DummyTarget_Button"/>
+                                  </Button>
+                                </Panel>
+                                <Panel id="RemoveSpawnsPanel" class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( RemoveSpawnedUnitsButtonPressed )">
+                                        <Label text="#RemoveSpawns_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">  
+                                  <TextEntry id="GoldAmount" maxchars="6" placeholder="Gold amount" oninputsubmit="FireCustomGameEvent( 'GiveGoldButtonPressed' )" />
+                                </Panel>
+                                <Panel class="Row">    
+                                  <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'GiveGoldButtonPressed' )">
+                                    <Label text="#GiveGold_Button"/>
+                                  </Button>
+                                  <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent_Str( ResetGoldButtonPressed )">
+                                    <Label text="#ResetGold_Button"/>
+                                  </Button>
+                                </Panel>
+                                <Panel class="Row">    
+                                    <ToggleButton id="PassiveGold_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( PassiveGoldButtonPressed )">
+                                        <Label text="#PassiveGold_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                            </Panel>
+
+                        </Panel>
+                        <Panel id="TabContent3" class="TabContent">
+                            <Panel class="Category">
+                                <Label class="Header" text="#Misc_ButtonCategory" />
+                                <Panel class="Row">
+                                    <ToggleButton id="InstantRespawnEnabled_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( InstantRespawnEnabledButtonPressed )">
+                                        <Label text="#InstantRespawnEnabled_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="FOW_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( FOWButtonPressed )">
+                                        <Label text="#FOW_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="LaneCreeps_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( LaneCreepsButtonPressed )">
+                                        <Label text="#LaneCreeps_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="BuildingInvulnerability_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( BuildingInvulnerabilityButtonPressed )">
+                                        <Label text="#BuildingInvulnerability_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( BuildingHealButtonPressed )">
+                                        <Label text="#BuildingHeal_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( RemoveWardsButtonPressed )">
+                                        <Label text="#RemoveWards_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( RegrowTreesButtonPressed )">
+                                        <Label text="#RegrowTrees_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( SpawnCreepsButtonPressed )">
+                                        <Label text="#SpawnCreeps_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( SpawnRunesButtonPressed )">
+                                        <Label text="#SpawnRunes_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent_Str( IncrementTimeOfDayButtonPressed )">
+                                        <Label text="#IncrementTimeOfDay_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Label id="NeutralSpawnIntervalDropDownLabel" class="SectionLabel" text="#NeutralSpawnIntervalDropDownLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <DropDown id="NeutralSpawnIntervalDropDown" class="DemoButton" oninputsubmit="OnNeutralSpawnIntervalDropDownChanged()">
+                                        <Label text="60" id="i_60"/>
+                                        <Label text="30" id="i_30"/>
+                                        <Label text="10" id="i_10"/>
+                                    </DropDown>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="NeutralsButtonLabel" class="SectionLabel" text="#NeutralsButtonLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent_Str( SpawnNeutralsButtonPressed )">
+                                        <Label text="#SpawnNeutrals_Button" />
+                                    </Button>
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent_Str( KillNeutralsButtonPressed )">
+                                        <Label text="#KillNeutrals_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="HostTimeScaleDropDownLabel" class="SectionLabel col-2" text="#HostTimeScaleDropDownLabel" />
+                                    <Label id="HostTimeScaleValueLabel" class="SectionLabel col-2" text="#HostTimeScaleValueLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton col-4" onactivate="OnHostTimeScaleSpeedChange(-1)">
+                                        <Label class="text-center" text="#HostTimeScaleSpeedDown_Button" />
+                                    </Button>
+                                    <Button class="DemoButton col-2" onactivate="OnHostTimeScaleSpeedChange(0)">
+                                        <Label class="text-center" text="#HostTimeScaleSpeedNormal_Button" />
+                                    </Button>
+                                    <Button class="DemoButton col-4" onactivate="OnHostTimeScaleSpeedChange(1)">
+                                        <Label class="text-center" text="#HostTimeScaleSpeedUp_Button" />
+                                    </Button>
+                                </Panel>
+                            </Panel>
+                        </Panel>
+                        <Panel id="TabContent4" class="TabContent">
+                            <Panel class="Category">
+                                <Label class="Header" text="#Overlay_ButtonCategory" />
+                                <Panel class="Row">
+                                    <Label id="TowersLabel" class="SectionLabel" text="#TowersLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="TowerDayVisionRangeButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'TowerDayVisionRangeButtonPressed' )">
+                                        <Label text="#TowerDayVisionRange_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="TowerNightVisionRangeButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'TowerNightVisionRangeButtonPressed' )">
+                                        <Label text="#TowerNightVisionRange_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="TowerTrueSightRangeButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'TowerTrueSightRangeButtonPressed' )">
+                                        <Label text="#TowerTrueSightRange_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="TowerAttackRangeButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'TowerAttackRangeButtonPressed' )">
+                                        <Label text="#TowerAttackRange_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="NeutralsLabel" class="SectionLabel" text="#NeutralsLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="ShowNeutralSpawnBoxButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'ShowNeutralSpawnBoxButtonPressed' )">
+                                        <Label text="#ShowNeutralSpawnBox_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="DetectNeutralsButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'DetectNeutralsButtonPressed' )">
+                                        <Label text="#DetectNeutrals_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="WardsLabel" class="SectionLabel" text="#WardsLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="SentryVisionButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'SentryVisionButtonPressed' )">
+                                        <Label text="#SentryVision_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="WardVisionButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'WardVisionButtonPressed' )">
+                                        <Label text="#WardVision_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="HeroLabel" class="SectionLabel" text="#HeroLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="HeroXPRangeButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'HeroXPRangeButtonPressed' )">
+                                        <Label text="#HeroXPRange_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="BlinkRangeButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'BlinkRangeButtonPressed' )">
+                                        <Label text="#BlinkRange_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="CreepLabel" class="SectionLabel" text="#CreepLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="CreepAggroRangeButtonPressed" class="DemoButton" onactivate="FireOverlayToggleEvent( 'CreepAggroRangeButtonPressed' )">
+                                        <Label text="#CreepAggroRange_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                            </Panel>
+                        </Panel>
+                        <Panel id="TabContent5" class="TabContent">
+                            <Panel class="Category">
+                                <Label class="Header" text="#Stats_ButtonCategory" />
+                                <Panel class="Row">
+                                    <DropDown id="PlayerDropDown" class="DemoButton" oninputsubmit="OnPlayerDropDownChanged()">
+                                        <Label text="Player 1" id="player1"/>
+                                        <Label text="Player 2" id="player2"/>
+                                        <Label text="Player 3" id="player3"/>
+                                        <Label text="Player 4" id="player4"/>
+                                        <Label text="Player 5" id="player5"/>
+                                        <Label text="Player 6" id="player6"/>
+                                        <Label text="Player 7" id="player7"/>
+                                        <Label text="Player 8" id="player8"/>
+                                        <Label text="Player 9" id="player9"/>
+                                        <Label text="Player 10" id="player10"/>
+                                    </DropDown>
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="ASLabel" class="SectionLabel StatRowLabel" text="#ASLabel" />
+                                    <Label id="ASValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="DPSLabel" class="SectionLabel StatRowLabel" text="#DPSLabel" />
+                                    <Label id="DPSValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="DPS10Label" class="SectionLabel StatRowLabel" text="#DPS10Label" />
+                                    <Label id="DPS10Value" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="LastAttackLabel" class="SectionLabel StatRowLabel" text="#LastAttackLabel" />
+                                    <Label id="LastAttackValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="TotalDamageLabel" class="SectionLabel StatRowLabel" text="#TotalDamageLabel" />
+                                    <Label id="TotalDamageValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="LastDamageTakenLabel" class="SectionLabel StatRowLabel" text="#LastDamageTakenLabel" />
+                                    <Label id="LastDamageTakenValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="TotalDamageTakenLabel" class="SectionLabel StatRowLabel" text="#TotalDamageTakenLabel" />
+                                    <Label id="TotalDamageTakenValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="TotalGoldEarnedLabel" class="SectionLabel StatRowLabel" text="#TotalGoldEarnedLabel" />
+                                    <Label id="TotalGoldEarnedValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="GPMLabel" class="SectionLabel StatRowLabel" text="#GPMLabel" />
+                                    <Label id="GPMValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="XPMLabel" class="SectionLabel StatRowLabel" text="#XPMLabel" />
+                                    <Label id="XPMValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row StatRow">
+                                    <Label id="NetWorthLabel" class="SectionLabel StatRowLabel" text="#NetWorthLabel" />
+                                    <Label id="NetWorthValue" class="SectionLabel StatRowValue" text="0" />
+                                </Panel>
+                                <Panel class="Row">    
+                                  <Button class="DemoButton" onactivate="FireCustomGameEvent( 'ResetPlayerStatsButtonPressed' )">
+                                    <Label text="#ResetPlayerStats_Button"/>
+                                  </Button>
+                                </Panel>
+                            </Panel>
+                        </Panel>
+                        <Panel id="TabContent6" class="TabContent">
+                            <Panel class="Category">
+                                <Label class="Header" text="#Other_ButtonCategory" />
+                                <Panel class="Row">
+                                    <ToggleButton id="EasyBuyEnabled_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( EasyBuyEnabledButtonPressed )">
+                                        <Label text="#EasyBuyEnabled_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="PauseDayNightCycle_Button" class="DemoButton" onactivate="FireCustomGameEvent_Str( PauseDayNightCycleButtonPressed )">
+                                        <Label text="#PauseDayNightCycle_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton" onactivate="FireCustomGameEvent( 'SpawnRoshanButtonPressed' )">
+                                        <Label text="#SpawnRoshan_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Label id="RoshanUpgradeRateLabel" class="SectionLabel" text="#RoshanUpgradeRateLabel" />
+                                </Panel>
+                                <Panel class="Row">  
+                                  <TextEntry id="RoshanUpgradeRate" maxchars="9" placeholder="Seconds Per Upgrade" oninputsubmit="FireCustomGameEvent( 'RoshanUpgradeRateButtonPressed' )" />
+                                </Panel>
+                                <Panel class="Row">    
+                                  <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'RoshanUpgradeRateButtonPressed' )">
+                                    <Label text="#RoshanUpgradeRate_Button"/>
+                                  </Button>    
+                                  <Button class="DemoButton HalfButton" onactivate="ResetFireCustomGameEvent( 'RoshanUpgradeRateButtonPressed', 'RoshanUpgradeRate', 240 )">
+                                    <Label text="#Reset_Button"/>
+                                  </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Label id="EffectiveCreepSpawnTimeLabel" class="SectionLabel" text="#EffectiveCreepSpawnTimeLabel" />
+                                </Panel>
+                                <Panel class="Row">  
+                                  <TextEntry id="EffectiveCreepSpawnTime" maxchars="9" placeholder="Game Time in Seconds" oninputsubmit="FireCustomGameEvent( 'EffectiveCreepSpawnTimeButtonPressed' )" />
+                                </Panel>
+                                <Panel class="Row">    
+                                  <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'EffectiveCreepSpawnTimeButtonPressed' )">
+                                    <Label text="#EffectiveCreepSpawnTime_Button"/>
+                                  </Button>    
+                                  <Button class="DemoButton HalfButton" onactivate="ResetFireCustomGameEvent( 'EffectiveCreepSpawnTimeButtonPressed', 'EffectiveCreepSpawnTime', 0 )">
+                                    <Label text="#Reset_Button"/>
+                                  </Button>
+                                </Panel>
+                                <Panel class="hr"></Panel>
+                                <Panel class="Row">
+                                    <Label id="SetCreepUpgradesLabel" class="SectionLabel" text="#SetCreepUpgradesLabel" />
+                                </Panel>
+                                <Panel class="Row">  
+                                  <TextEntry id="SetCreepUpgrades" maxchars="9" placeholder="Number of upgrades" oninputsubmit="FireCustomGameEvent( 'SetCreepUpgradesButtonPressed' )" />
+                                </Panel>
+                                <Panel class="Row">    
+                                  <Button class="DemoButton" onactivate="FireCustomGameEvent( 'SetCreepUpgradesButtonPressed' )">
+                                    <Label text="#SetCreepUpgrades_Button"/>
+                                  </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <ToggleButton id="OverrideCreepUpgrades_Button" class="DemoButton" onactivate="FireCustomGameEvent( 'OverrideCreepUpgradesButtonPressed' )">
+                                        <Label text="#OverrideCreepUpgrades_Button" />
+                                    </ToggleButton>
+                                </Panel>
+                            </Panel>
+                        </Panel>
+                        <Panel id="TabContent7" class="TabContent">
+                            <Panel class="Category">
+                                <Label class="Header" text="#Unit_ButtonCategory" />
+                                <Panel class="Row">
+                                    <Label id="SpawnUnitButtonLabel" class="SectionLabel" text="#SpawnUnitButtonLabel" />
+                                </Panel>
+                                <Panel class="Row">
+                                    <DropDown id="UnitCustomDropDown" class="DemoButton">
+                                        <Label text="Dire melee creep" id="npc_dota_creep_badguys_melee"/>
+                                        <Label text="Dire super melee creep" id="npc_dota_creep_badguys_melee_upgraded"/>
+                                        <Label text="Dire mega melee creep" id="npc_dota_creep_badguys_melee_upgraded_mega"/>
+                                        <Label text="Dire ranged creep" id="npc_dota_creep_badguys_ranged"/>
+                                        <Label text="Dire super ranged creep" id="npc_dota_creep_badguys_ranged_upgraded"/>
+                                        <Label text="Dire mega ranged creep" id="npc_dota_creep_badguys_ranged_upgraded_mega"/>
+                                        <Label text="Dire siege creep" id="npc_dota_badguys_siege"/>
+                                        <Label text="Dire super siege creep" id="npc_dota_badguys_siege_upgraded"/>
+                                        <Label text="Dire mega siege creep" id="npc_dota_badguys_siege_upgraded_mega"/>
+                                        <Label text="Radiant melee creep" id="npc_dota_creep_goodguys_melee"/>
+                                        <Label text="Radiant super melee creep" id="npc_dota_creep_goodguys_melee_upgraded"/>
+                                        <Label text="Radiant mega melee creep" id="npc_dota_creep_goodguys_melee_upgraded_mega"/>
+                                        <Label text="Radiant ranged creep" id="npc_dota_creep_goodguys_ranged"/>
+                                        <Label text="Radiant super ranged creep" id="npc_dota_creep_goodguys_ranged_upgraded"/>
+                                        <Label text="Radiant mega ranged creep" id="npc_dota_creep_goodguys_ranged_upgraded_mega"/>
+                                        <Label text="Radiant siege creep" id="npc_dota_goodguys_siege"/>
+                                        <Label text="Radiant super siege creep" id="npc_dota_goodguys_siege_upgraded"/>
+                                        <Label text="Radiant mega siege creep" id="npc_dota_goodguys_siege_upgraded_mega"/>
+                                        <Label text="Alpha Wolf" id="npc_dota_neutral_alpha_wolf"/>
+                                        <Label text="Centaur Conqueror" id="npc_dota_neutral_centaur_khan"/>
+                                        <Label text="Centaur Courser" id="npc_dota_neutral_centaur_outrunner"/>
+                                        <Label text="Dark Troll Summoner" id="npc_dota_neutral_dark_troll_warlord"/>
+                                        <Label text="Fell Spirit" id="npc_dota_neutral_fel_beast"/>
+                                        <Label text="Ghost" id="npc_dota_neutral_ghost"/>
+                                        <Label text="Giant Wolf" id="npc_dota_neutral_giant_wolf"/>
+                                        <Label text="Harpy" id="npc_dota_neutral_harpy_scout"/>
+                                        <Label text="Harpy Stormcrafter" id="npc_dota_neutral_harpy_storm"/>
+                                        <Label text="Hellbear" id="npc_dota_neutral_polar_furbolg_champion"/>
+                                        <Label text="Hellbear Smasher" id="npc_dota_neutral_polar_furbolg_ursa_warrior"/>
+                                        <Label text="Hill Troll" id="npc_dota_neutral_dark_troll"/>
+                                        <Label text="Hill Troll Berserker" id="npc_dota_neutral_forest_troll_berserker"/>
+                                        <Label text="Hill Troll Priest" id="npc_dota_neutral_forest_troll_high_priest"/>
+                                        <Label text="Kobold" id="npc_dota_neutral_kobold"/>
+                                        <Label text="Kobold Soldier" id="npc_dota_neutral_kobold_tunneler"/>
+                                        <Label text="Kobold Foreman" id="npc_dota_neutral_kobold_taskmaster"/>
+                                        <Label text="Mud Golem" id="npc_dota_neutral_mud_golem"/>
+                                        <Label text="Ogre Bruiser" id="npc_dota_neutral_ogre_mauler"/>
+                                        <Label text="Ogre Frostmage" id="npc_dota_neutral_ogre_magi"/>
+                                        <Label text="Satyr Banisher" id="npc_dota_neutral_satyr_trickster"/>
+                                        <Label text="Satyr Mindstealer" id="npc_dota_neutral_satyr_soulstealer"/>
+                                        <Label text="Satyr Tormenter" id="npc_dota_neutral_satyr_hellcaller"/>
+                                        <Label text="Vhoul Assassin" id="npc_dota_neutral_gnoll_assassin"/>
+                                        <Label text="Wildwing" id="npc_dota_neutral_wildkin"/>
+                                        <Label text="Wildwing Ripper" id="npc_dota_neutral_enraged_wildkin"/>
+                                        <Label text="Ancient Black Drake" id="npc_dota_neutral_black_drake"/>
+                                        <Label text="Ancient Black Dragon" id="npc_dota_neutral_black_dragon"/>
+                                        <Label text="Ancient Drakken Armorer" id="npc_dota_neutral_blue_dragonspawn_sorcerer"/>
+                                        <Label text="Ancient Drakken Sentinel" id="npc_dota_neutral_blue_dragonspawn_overseer"/>
+                                        <Label text="Ancient Granite Golem" id="npc_dota_neutral_granite_golem"/>
+                                        <Label text="Ancient Primal Stalker" id="npc_dota_neutral_elder_jungle_stalker"/>
+                                        <Label text="Ancient Rock Golem" id="npc_dota_neutral_rock_golem"/>
+                                        <Label text="Ancient Rumblehide" id="npc_dota_neutral_small_thunder_lizard"/>
+                                        <Label text="Ancient Stalker" id="npc_dota_neutral_jungle_stalker"/>
+                                        <Label text="Thunderhide" id="npc_dota_neutral_big_thunder_lizard"/>
+                                    </DropDown>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'SpawnAllyUnitButtonPressed' )">
+                                        <Label text="#Ally_Button" />
+                                    </Button>
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'SpawnEnemyUnitButtonPressed' )">
+                                        <Label text="#Enemy_Button" />
+                                    </Button>
+                                </Panel>
+                                <Panel class="Row">
+                                    <Button class="DemoButton HalfButton" onactivate="FireCustomGameEvent( 'SpawnNeutralUnitButtonPressed' )">
+                                        <Label text="#Neutral_Button" />
+                                    </Button>
+                                </Panel>
+                            </Panel>
+                        </Panel>
+                    </Panel>
+                </Panel>
+            </Panel>
+            <Button id="ControlPanelSlideThumb" class="ControlPanelSlideThumb" onactivate="$.GetContextPanel().ToggleClass('Minimized')">
+                <Panel class="RightArrowButtonIcon" />
+            </Button>
+        </Panel>
+    </Panel>
+</root>
